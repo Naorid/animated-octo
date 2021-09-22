@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <html lang="fr">
 <head>
     <title>Fluffy Giggle</title>
@@ -29,7 +31,7 @@
     <div id="player1">
         <strong>Joueur 1</strong>
         <span class="life">3</span> vies
-    </div>
+</div>
 </body>
 
 <script src="js/three.min.js"></script>
@@ -37,6 +39,7 @@
 <script src="js/OrbitControls.js"></script>
 <script src="js/THREEx.KeyboardState.js"></script>
 <script src="game/player.js"></script>
+<script src="game/enemy.js"></script>
 <script src="game/graphic.js"></script>
 <script src="game/physic.js"></script>
 <script src="game/shoot.js"></script>
@@ -56,11 +59,11 @@
     function animate()
     {
         requestAnimationFrame(animate);
-        render();
         update();
         player1.displayInfo();
         shoot();
         collisions();
+        render();
     }
 
     function render()

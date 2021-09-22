@@ -51,8 +51,8 @@ Player.prototype.displayInfo = function () {
 }
 
 Player.prototype.turnRight = function (angle) {
-    this.direction += -angle;
-    this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), -angle);
+    this.direction += angle;
+    this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), angle);
 };
 
 Player.prototype.turnLeft = function (angle) {
@@ -64,11 +64,10 @@ Player.prototype.move = function () {
     var moveTo = new THREE.Vector3(
         this.speed * Math.cos(this.direction) + this.position.x,
         this.speed * Math.sin(this.direction) + this.position.y,
-        this.graphic.position.z
+        this.position.z
     );
 
     this.position = moveTo;
-
     if (this.speed > 0) {
         this.speed = this.speed - 0.04;
     }
@@ -78,7 +77,7 @@ Player.prototype.move = function () {
 
     this.graphic.position.x = this.position.x;
     this.graphic.position.y = this.position.y;
-    
+
     light1.position.x = this.position.x;
     light1.position.y = this.position.y;
    //light1.position.z = this.graphic.position.z + 500;
